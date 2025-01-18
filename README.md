@@ -1,1 +1,1 @@
-# Exo_Pok-dex
+# Exo_React_Pokédex
