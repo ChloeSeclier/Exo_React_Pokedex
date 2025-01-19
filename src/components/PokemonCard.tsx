@@ -1,3 +1,7 @@
+interface PokemonCardProps {
+  name: string;
+  imgSrc: string;
+}
 
 function PokemonCard({ pokemon }) {
   //console.log(props)
