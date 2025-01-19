@@ -4,9 +4,6 @@ interface PokemonCardProps {
 }
 
 function PokemonCard({ pokemon }) {
-  //console.log(props)
-  //const pokemon = { name: "mew", imgSrc: null };
-
   return (
     <figure>
       {pokemon.imgSrc ? (
