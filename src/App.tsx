@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState } from "react";
 
-import MyTitle from "./components/MyTitle";
 import PokemonCard from "./components/PokemonCard";
 
 const pokemonList = [
@@ -32,33 +31,28 @@ const pokemonList = [
 
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
-  const handleClickNext = () => {
-    setPokemonIndex(pokemonIndex + 1);
-  };
-  const handleClickBefore = () => {
-    setPokemonIndex(pokemonIndex - 1);
+  const handlePokemonClick = (index) => {
+    setPokemonIndex(index);
   };
 
   return (
-    <section>
-      <div>
-        {pokemonIndex > 0 && (
-          <button type="button" onClick={handleClickBefore}>
-            Précédent
-          </button>
-        )}
-        {pokemonIndex < pokemonList.length - 1 && (
-          <button type="button" onClick={handleClickNext}>
-            Suivant
-          </button>
-        )}
+    <div>
+      <nav>
+        <ul>
+          {pokemonList.map((pokemon, index) => (
+            <button
+              key={pokemon.name}
+              onClick={() => handlePokemonClick(index)}
+            >
+              {pokemon.name}
+            </button>
+          ))}
+        </ul>
+      </nav>
 
-        <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-      </div>
-    </section>
+      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
+    </div>
   );
 }
-//Dans le composant App, crée un state
-//pokemonIndex en utilisant un état (useState).
-// Initialise ce state à 0.
+
 export default App;
